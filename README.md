@@ -90,6 +90,7 @@ The following environment variables can be used to configure rTorrent.
 * **UPLOADS**: overrides `throttle.max_uploads.set`, sets the maximum amount of simultaneous uploads
 * **DOWNLOAD_RATE**: overrides `throttle.global_down.max_rate.set_kb`, sets the maximum download rate in kb/s
 * **UPLOAD_RATE**: overrides `throttle.global_up.max_rate.set_kb`, sets the maximum upload rate in kb/s
+* **DHT**: overrides `dht.mode.set`, enables/disables DHT & peer discovery (set to on/off)
 
 For example, the below `docker` command uses `UPLOAD_RATE` to override the maximum allowed upload rate to 1MB/s.
 

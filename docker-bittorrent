@@ -38,6 +38,24 @@ if [ -n "$UPLOAD_RATE" ]; then
     echo "throttle.global_up.max_rate.set_kb = $UPLOAD_RATE" >> /root/.rtorrent.rc
 fi
 
+if [ "$DHT" == "on" ]; then
+    sed -i '/^dht.mode.set =/d' /root/.rtorrent.rc
+    sed -i '/^protocol.pex.set =/d' /root/.rtorrent.rc
+    sed -i '/^trackers.use_udp.set =/d' /root/.rtorrent.rc
+
+    echo "dht.mode.set = on" >> /root/.rtorrent.rc
+    echo "protocol.pex.set = yes" >> /root/.rtorrent.rc
+    echo "trackers.use_udp.set = yes" >> /root/.rtorrent.rc
+elif [ "$DHT" == "off" ]; then
+    sed -i '/^dht.mode.set =/d' /root/.rtorrent.rc
+    sed -i '/^protocol.pex.set =/d' /root/.rtorrent.rc
+    sed -i '/^trackers.use_udp.set =/d' /root/.rtorrent.rc
+
+    echo "dht.mode.set = off" >> /root/.rtorrent.rc
+    echo "protocol.pex.set = no" >> /root/.rtorrent.rc
+    echo "trackers.use_udp.set = no" >> /root/.rtorrent.rc
+fi
+
 service nginx start
 service php5-fpm start
 
