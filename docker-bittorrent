@@ -8,6 +8,36 @@ chmod -R 0755 /data/rutorrent
 sed -i 's/^;listen.mode/listen.mode/' /etc/php5/fpm/pool.d/www.conf
 sed -i 's/^;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' /etc/php5/fpm/php.ini
 
+if [ -n "$PEERS" ]; then
+    sed -i '/^throttle.max_peers.normal.set =/d' /root/.rtorrent.rc
+    echo "throttle.max_peers.normal.set = $PEERS" >> /root/.rtorrent.rc
+fi
+
+if [ -n "$PEERS_SEED" ]; then
+    sed -i '/^throttle.max_peers.seed.set =/d' /root/.rtorrent.rc
+    echo "throttle.max_peers.seed.set = $PEERS_SEED" >> /root/.rtorrent.rc
+fi
+
+if [ -n "$DOWNLOADS" ]; then
+    sed -i '/^throttle.max_downloads.set =/d' /root/.rtorrent.rc
+    echo "throttle.max_downloads.set = $DOWNLOADS" >> /root/.rtorrent.rc
+fi
+
+if [ -n "$UPLOADS" ]; then
+    sed -i '/^throttle.max_uploads.set =/d' /root/.rtorrent.rc
+    echo "throttle.max_uploads.set = $UPLOADS" >> /root/.rtorrent.rc
+fi
+
+if [ -n "$DOWNLOAD_RATE" ]; then
+    sed -i '/^throttle.global_down.max_rate.set_kb =/d' /root/.rtorrent.rc
+    echo "throttle.global_down.max_rate.set_kb = $DOWNLOAD_RATE" >> /root/.rtorrent.rc
+fi
+
+if [ -n "$UPLOAD_RATE" ]; then
+    sed -i '/^throttle.global_up.max_rate.set_kb =/d' /root/.rtorrent.rc
+    echo "throttle.global_up.max_rate.set_kb = $UPLOAD_RATE" >> /root/.rtorrent.rc
+fi
+
 service nginx start
 service php5-fpm start
 
@@ -46,4 +76,5 @@ while true; do
         rm -rf /data/rtorrent/.session/rtorrent.lock
         killall rtorrent; screen -dmS rtorrent rtorrent
         sleep $DELAY_START
+    fi
 done

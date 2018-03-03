@@ -45,12 +45,16 @@ protocol.pex.set = yes
 trackers.use_udp.set = yes
 
 # Peer settings. Customize as you wish.
-throttle.max_uploads.set = 100
-throttle.max_uploads.global.set = 250
+throttle.max_downloads.set = 0
+throttle.max_downloads.global.set = 0
+throttle.max_uploads.set = 0
+throttle.max_uploads.global.set = 0
 throttle.min_peers.normal.set = 20
 throttle.max_peers.normal.set = 100
 throttle.min_peers.seed.set = 20
 throttle.max_peers.seed.set = 100
+throttle.global_down.max_rate.set_kb = 0
+throttle.global_up.max_rate.set_kb = 0
 trackers.numwant.set = 100
 protocol.encryption.set = allow_incoming,try_outgoing,enable_retry
 
