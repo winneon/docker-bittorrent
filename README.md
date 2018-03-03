@@ -36,9 +36,9 @@ Replace `MAIN` with your desired web port, `PEER` with your desired incoming por
 
 ```bash
 $ docker run --name bittorrent \
-  --restart always -dit \
-  -p MAIN:80 -p PEER:5000 \
-  -v CONTENT:/data/rtorrent \
+	--restart always -dit \
+	-p MAIN:80 -p PEER:5000 \
+	-v CONTENT:/data/rtorrent \
 	winneon/docker-bittorrent
 ```
 
@@ -95,10 +95,10 @@ For example, the below `docker` command uses `UPLOAD_RATE` to override the maxim
 
 ```bash
 $ docker run --name bittorrent \
-  --restart always -dit \
-  -p 80:80 -p 5000:5000 \
-  -e UPLOAD_RATE=1024 \
-  -v /media/alpha/rtorrent:/data/rtorrent \
+	--restart always -dit \
+	-p 80:80 -p 5000:5000 \
+	-e UPLOAD_RATE=1024 \
+	-v /media/alpha/rtorrent:/data/rtorrent \
 	winneon/docker-bittorrent
 ```
 
