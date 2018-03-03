@@ -130,7 +130,7 @@ This Docker container is accessible in multiple ways:
 
 ### ruTorrent
 
-To use [ruTorrent], open `127.0.0.1:MAIN` in a web browser, replacing `MAIN` with the web port you bound (i.e. `127.0.0.:8080`). When prompted, input the username/password combo `bittorrent/bittorrent`.
+To use [ruTorrent], open `http://127.0.0.1:MAIN/` in a web browser, replacing `MAIN` with the web port you bound (i.e. `http://127.0.0.1:8080/`). When prompted, input the username/password combo `bittorrent/bittorrent`.
 
 To change the username/password, run the following command. Replace `USERNAME` and `PASSWORD` with your desired username & password, respectively. If you used the [Docker Compose] installation method, replace `bittorrent` with the container name that [Docker Compose] generated.
 
@@ -140,7 +140,7 @@ $ docker exec -it bittorrent htpasswd -cb /data/rutorrent/.htpasswd USERNAME PAS
 
 ### flood
 
-To use [flood], open `127.0.0.1:MAIN/flood/` in a web browser, replacing `MAIN` with the web port you bound (i.e. `127.0.0.1:8080/flood/`). Follow the on-screen instructions to create a flood account.
+To use [flood], open `http://127.0.0.1:MAIN/flood/` in a web browser, replacing `MAIN` with the web port you bound (i.e. `http://127.0.0.1:8080/flood/`). Follow the on-screen instructions to create a flood account.
 
 It is also possible to monitor [flood]'s `npm` terminal output if you so desire. To do so, run the following command. If you used the [Docker Compose] installation method, replace `bittorrent` with the container name that [Docker Compose] generated.
 
