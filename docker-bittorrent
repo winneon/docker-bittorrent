@@ -1,0 +1,49 @@
+#!/bin/bash
+
+mkdir -p /data/rtorrent/{downloads,watch,log,.session,rutorrent/user-profiles,rutorrent/user-profiles/torrents}
+
+chown -R www-data:www-data /data/rutorrent
+chmod -R 0755 /data/rutorrent
+
+sed -i 's/^;listen.mode/listen.mode/' /etc/php5/fpm/pool.d/www.conf
+sed -i 's/^;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' /etc/php5/fpm/php.ini
+
+service nginx start
+service php5-fpm start
+
+if [ -f /data/rtorrent/.session/rtorrent.lock ]; then
+    rm -f /data/rtorrent/.session/rtorrent.lock
+fi
+
+screen -dmS rtorrent rtorrent
+
+pushd /data/flood > /dev/null
+screen -dmS flood npm start
+popd > /dev/null
+
+echo "Finished booting. Detach from this process by pressing Ctrl+P & Ctrl+Q"
+echo "Your available screens are: rtorrent, flood"
+
+INTERVAL=30
+DELAY_START=1200
+RETRY=3
+
+sleep $DELAY_START
+
+while true; do
+    STATUS_CODE=$(
+        curl --silent \
+            --data '<ping></ping>' \
+            --write-out '%{http_code}' \
+            --output /dev/null \
+            --retry $RETRY \
+            "http://127.0.0.1/RPC2"
+    )
+
+    if [ $STATUS_CODE = "200" ]; then
+        sleep $INTERVAL
+    else
+        rm -rf /data/rtorrent/.session/rtorrent.lock
+        killall rtorrent; screen -dmS rtorrent rtorrent
+        sleep $DELAY_START
+done

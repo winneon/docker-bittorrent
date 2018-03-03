@@ -1,0 +1,10 @@
+version: '3'
+services:
+  bittorrent:
+    image: winneon/docker-bittorrent
+    build: .
+    ports:
+      - 80:80 # Main access.
+      - 6000:5000 # Incoming peer traffic.
+    volumes:
+      - /media/alpha/rtorrent:/data/rtorrent # Replace /media/alpha/rtorrent with your content directory.
