@@ -38,14 +38,15 @@ Replace `MAIN` with your desired web port, `PEER` with your desired incoming por
 $ docker run --name bittorrent \
   --restart always -dit \
   -p MAIN:80 -p PEER:5000 \
-  -v CONTENT:/data/rtorrent winneon/docker-bittorrent
+  -v CONTENT:/data/rtorrent \
+	winneon/docker-bittorrent
 ```
 
 To stop and/or start the container afterwards, run the following command(s).
 
 ```bash
 $ docker stop bittorrent
-$ docker stop bittorrent
+$ docker start bittorrent
 ```
 
 Afterwards, continue to the next section.
@@ -97,7 +98,8 @@ $ docker run --name bittorrent \
   --restart always -dit \
   -p 80:80 -p 5000:5000 \
   -e UPLOAD_RATE=1024 \
-  -v /media/alpha/rtorrent:/data/rtorrent winneon/docker-bittorrent
+  -v /media/alpha/rtorrent:/data/rtorrent \
+	winneon/docker-bittorrent
 ```
 
 If you prefer to use `docker-compose` instead, the below example uses `DOWNLOAD_RATE` to override the maximum allowed download rate to 1MB/s, within `docker-compose.yml`.
