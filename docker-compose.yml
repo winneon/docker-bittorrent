@@ -3,6 +3,7 @@ services:
   bittorrent:
     image: winneon/docker-bittorrent
     build: .
+    restart: always
     ports:
       - 80:80 # Main access.
       - 6000:5000 # Incoming peer traffic.
