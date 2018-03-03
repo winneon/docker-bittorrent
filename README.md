@@ -195,7 +195,7 @@ Assuming the above prerequisites are met, run the following command.
 $ docker-compose build
 ```
 
-When it finishes, you can run the image via the [Docker Compose] instructions laid out in the [Installation](#installation) section.
+The build process may take upwards of 30 minutes on even modern machines. When it finishes, you can run the image via the [Docker Compose] instructions laid out in the [Installation](#installation) section.
 
 [docktorrent]: https://github.com/kfei/docktorrent
 [Docker]: https://www.docker.com/
