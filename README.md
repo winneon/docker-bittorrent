@@ -41,7 +41,7 @@ Replace the words `MAIN` with your desired web port, `PEER` with your desired in
 ```bash
 $ docker run --name bittorrent \
   --restart always -dit \
-  -p MAIN:80 -p PEER:5000 -p 6881:6881 \
+  -p MAIN:80 -p PEER:5000 -p DHT:6881 \
   -v CONTENT:/data/rtorrent \
   winneon/docker-bittorrent
 ```
