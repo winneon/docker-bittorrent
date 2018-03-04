@@ -36,12 +36,12 @@ Installation via [Docker CE] takes only one command, assuming you have [Docker C
 
 Assuming the above prerequisites are met, run the following command. The container will restart on boot automatically.
 
-Replace `MAIN` with your desired web port, `PEER` with your desired incoming port, `DHT` with your desired DHT port, and `CONTENT` with an empty directory to store your content.
+Replace the words `MAIN` with your desired web port, `PEER` with your desired incoming port, `DHT` with your desired DHT port, and `CONTENT` with an empty directory to store your content.
 
 ```bash
 $ docker run --name bittorrent \
   --restart always -dit \
-  -p MAIN:80 -p PEER:5000 \
+  -p MAIN:80 -p PEER:5000 -p 6881:6881 \
   -v CONTENT:/data/rtorrent \
   winneon/docker-bittorrent
 ```
@@ -67,7 +67,7 @@ If you prefer to store these variables in a file, [Docker Compose] provides an a
 
 ---
 
-Assuming the above prerequisites are met, download this repository's archive & unzip it. Open `docker-compose.yml` in your text editor of choice and replace `MAIN` with your desired web port, `PEER` with your desired incoming port, `DHT` with your desired DHT port, and `CONTENT` with an empty directory to store your content. Afterwards, run the following command inside the directory. The container will restart on boot automatically.
+Assuming the above prerequisites are met, download this repository's archive & unzip it. Open `docker-compose.yml` in your text editor of choice and replace the words `MAIN` with your desired web port, `PEER` with your desired incoming port, `DHT` with your desired DHT port, and `CONTENT` with an empty directory to store your content. Afterwards, run the following command inside the directory. The container will restart on boot automatically.
 
 ```bash
 $ docker-compose up -d
@@ -140,7 +140,7 @@ This Docker container is accessible in multiple ways:
 
 To use [ruTorrent], open `http://127.0.0.1:MAIN/` in a web browser, replacing `MAIN` with the web port you bound (i.e. `http://127.0.0.1:8080/`). When prompted, input the username/password combo `bittorrent/bittorrent`.
 
-To change the username/password, run the following command. Replace `USERNAME` and `PASSWORD` with your desired username & password, respectively. If you used the [Docker Compose] installation method, replace `bittorrent` with the container name that [Docker Compose] generated.
+To change the username/password, run the following command. Replace the words `USERNAME` and `PASSWORD` with your desired username & password, respectively. If you used the [Docker Compose] installation method, replace the word `bittorrent` with the container name that [Docker Compose] generated.
 
 ```bash
 $ docker exec -it bittorrent htpasswd -cb /data/rutorrent/.htpasswd USERNAME PASSWORD
@@ -150,7 +150,7 @@ $ docker exec -it bittorrent htpasswd -cb /data/rutorrent/.htpasswd USERNAME PAS
 
 To use [flood], open `http://127.0.0.1:MAIN/flood/` in a web browser, replacing `MAIN` with the web port you bound (i.e. `http://127.0.0.1:8080/flood/`). Follow the on-screen instructions to create a flood account.
 
-It is also possible to monitor [flood]'s `npm` terminal output if you so desire. To do so, run the following command. If you used the [Docker Compose] installation method, replace `bittorrent` with the container name that [Docker Compose] generated.
+It is also possible to monitor [flood]'s `npm` terminal output if you so desire. To do so, run the following command. If you used the [Docker Compose] installation method, replace the word `bittorrent` with the container name that [Docker Compose] generated.
 
 ```bash
 $ docker exec -it bittorrent screen -r flood
@@ -160,7 +160,7 @@ Detach from the screen by pressing `Ctrl+A, D`.
 
 ### rTorrent
 
-To use [rTorrent] via a CLI, run the following command. This is not recommended for anyone other than experienced users. If you used the [Docker Compose] installation method, replace `bittorrent` with the container name that [Docker Compose] generated.
+To use [rTorrent] via a CLI, run the following command. This is not recommended for anyone other than experienced users. If you used the [Docker Compose] installation method, replace the word`bittorrent` with the container name that [Docker Compose] generated.
 
 ```bash
 $ docker exec -it bittorrent screen -r rtorrent
@@ -181,7 +181,7 @@ If you prefer to build this image from source or you want to modify a wider-rang
 
 ---
 
-Assuming the above prerequisites are met, run the following command. Replace `NAME` with your desired name of the image.
+Assuming the above prerequisites are met, run the following command. Replace the word `NAME` with your desired name of the image.
 
 ```bash
 $ docker build -t NAME .

@@ -70,7 +70,7 @@ pushd /data/flood > /dev/null
 screen -dmS flood npm start
 popd > /dev/null
 
-echo "Finished booting. Detach from this process by pressing Ctrl+P & Ctrl+Q"
+echo "Finished booting. Detach from this process by pressing Ctrl+P & Ctrl+Q."
 echo "Your available screens are: rtorrent, flood"
 
 INTERVAL=30
