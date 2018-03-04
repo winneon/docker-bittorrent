@@ -132,9 +132,9 @@ Before we continue, ensure that your `PEER` and `DHT` ports that you set earlier
 
 This Docker container is accessible in multiple ways:
 
-* [ruTorrent] via web
-* [flood] via web
-* [rTorrent] via CLI
+* [ruTorrent] via web.
+* [flood] via web.
+* [rTorrent] via CLI.
 
 ### ruTorrent
 
