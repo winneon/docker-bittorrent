@@ -46,7 +46,7 @@ $ docker run --name bittorrent \
   winneon/docker-bittorrent
 ```
 
-To stop and/or start the container afterwards, run the following command(s).
+To stop and/or start the container, run the following command(s).
 
 ```bash
 $ docker stop bittorrent
@@ -73,7 +73,7 @@ Assuming the above prerequisites are met, download this repository's archive & u
 $ docker-compose up -d
 ```
 
-To stop and/or start the container afterwards, run the following command(s).
+To stop and/or start the container, run the following command(s).
 
 ```bash
 $ docker-compose stop
