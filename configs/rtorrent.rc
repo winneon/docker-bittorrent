@@ -39,11 +39,17 @@ network.port_range.set = 5000-5000
 network.port_random.set = no
 
 # "Public tracker"-related settings.
-# Set to disable, no, and no respectively to completely disable. Ignore the port.
+# Set to disable, 0, and 0 respectively to completely disable. Ignore the port.
 dht.port.set = 6881
 dht.mode.set = auto
-protocol.pex.set = yes
-trackers.use_udp.set = yes
+protocol.pex.set = 1
+trackers.use_udp.set = 1
+
+# DHT tracker bootstrapping. This section is ignored when DHT is off.
+schedule2 = dht_node_1, 5, 0, "dht.add_node=router.utorrent.com:6881"
+schedule2 = dht_node_2, 5, 0, "dht.add_node=dht.transmissionbt.com:6881"
+schedule2 = dht_node_3, 5, 0, "dht.add_node=router.bitcomet.com:6881"
+schedule2 = dht_node_4, 5, 0, "dht.add_node=dht.aelitis.com:6881"
 
 # Peer settings. Customize as you wish.
 throttle.max_downloads.set = 100
