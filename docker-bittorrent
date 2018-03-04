@@ -44,17 +44,17 @@ if [ "$DHT" == "on" ]; then
     sed -i '/^protocol.pex.set =/d' /root/.rtorrent.rc
     sed -i '/^trackers.use_udp.set =/d' /root/.rtorrent.rc
 
-    echo "dht.mode.set = on" >> /root/.rtorrent.rc
-    echo "protocol.pex.set = yes" >> /root/.rtorrent.rc
-    echo "trackers.use_udp.set = yes" >> /root/.rtorrent.rc
+    echo "dht.mode.set = auto" >> /root/.rtorrent.rc
+    echo "protocol.pex.set = 1" >> /root/.rtorrent.rc
+    echo "trackers.use_udp.set = 1" >> /root/.rtorrent.rc
 elif [ "$DHT" == "off" ]; then
     sed -i '/^dht.mode.set =/d' /root/.rtorrent.rc
     sed -i '/^protocol.pex.set =/d' /root/.rtorrent.rc
     sed -i '/^trackers.use_udp.set =/d' /root/.rtorrent.rc
 
-    echo "dht.mode.set = off" >> /root/.rtorrent.rc
-    echo "protocol.pex.set = no" >> /root/.rtorrent.rc
-    echo "trackers.use_udp.set = no" >> /root/.rtorrent.rc
+    echo "dht.mode.set = disable" >> /root/.rtorrent.rc
+    echo "protocol.pex.set = 0" >> /root/.rtorrent.rc
+    echo "trackers.use_udp.set = 0" >> /root/.rtorrent.rc
 fi
 
 service nginx start
