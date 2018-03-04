@@ -13,7 +13,7 @@ Based on the original [docktorrent], this [Docker] container serves as a fully-f
 * Two [rTorrent] web clients to choose from: the aging-yet-robust [ruTorrent], or the modern-yet-inflexible [flood].
 * Want to use both clients? No problem! Both are available to use and are interchangeable.
 * Automatically restarts [rTorrent] if it hangs or freezes.
-* Easy access to [rtorrent] CLI or [flood] terminal output via one command.
+* Easy access to [rTorrent] CLI or [flood] terminal output via one command.
 
 ## Installation
 
