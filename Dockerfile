@@ -100,7 +100,7 @@ COPY docker-bittorrent /usr/local/bin/docker-bittorrent
 RUN htpasswd -cb /data/rutorrent/.htpasswd bittorrent bittorrent
 
 # Expose volumes & ports.
-EXPOSE 80 5000
+EXPOSE 80 5000 6881
 VOLUME [ "/data/rtorrent" ]
 
 # Run the entrypoint.

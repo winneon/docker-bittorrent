@@ -32,7 +32,7 @@ Installation via [Docker CE] takes only one command, assuming you have [Docker C
 
 Assuming the above prerequisites are met, run the following command. The container will restart on boot automatically.
 
-Replace `MAIN` with your desired web port, `PEER` with your desired incoming port, and `CONTENT` with an empty directory to store your content.
+Replace `MAIN` with your desired web port, `PEER` with your desired incoming port, `DHT` with your desired DHT port, and `CONTENT` with an empty directory to store your content.
 
 ```bash
 $ docker run --name bittorrent \
@@ -63,7 +63,7 @@ If you prefer to store these variables in a file, [Docker Compose] provides an a
 
 ---
 
-Assuming the above prerequisites are met, download this repository's archive & unzip it. Open `docker-compose.yml` in your text editor of choice and replace `MAIN` with your desired web port, `PEER` with your desired incoming port, and `CONTENT` with an empty directory to store your content. Afterwards, run the following command inside the directory. The container will restart on boot automatically.
+Assuming the above prerequisites are met, download this repository's archive & unzip it. Open `docker-compose.yml` in your text editor of choice and replace `MAIN` with your desired web port, `PEER` with your desired incoming port, `DHT` with your desired DHT port, and `CONTENT` with an empty directory to store your content. Afterwards, run the following command inside the directory. The container will restart on boot automatically.
 
 ```bash
 $ docker-compose up -d
@@ -97,7 +97,7 @@ For example, the below `docker` command uses `UPLOAD_RATE` to override the maxim
 ```bash
 $ docker run --name bittorrent \
   --restart always -dit \
-  -p 80:80 -p 5000:5000 \
+  -p 80:80 -p 5000:5000 -p 6881:6881 \
   -e UPLOAD_RATE=1024 \
   -v /media/alpha/rtorrent:/data/rtorrent \
   winneon/docker-bittorrent
@@ -115,6 +115,7 @@ services:
     ports:
       - 80:80
       - 5000:5000
+      - 6881:6881
     volumes:
       - /media/alpha/rtorrent:/data/rtorrent
     environment:

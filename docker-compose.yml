@@ -7,5 +7,6 @@ services:
     ports:
       - MAIN:80 # Main access.
       - PEER:5000 # Incoming peer traffic.
+      - DHT:6881 # Incoming/outgoing DHT traffic.
     volumes:
       - CONTENT:/data/rtorrent # Content directory.
