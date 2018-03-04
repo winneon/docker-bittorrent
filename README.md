@@ -128,6 +128,8 @@ services:
 
 ## Usage
 
+Before we continue, ensure that your `PEER` and `DHT` ports that you set earlier are port-forwarded correctly, otherwise you may have issues connecting to peers and vice versa.
+
 This Docker container is accessible in multiple ways:
 
 * [ruTorrent] via web
