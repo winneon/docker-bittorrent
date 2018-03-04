@@ -39,8 +39,9 @@ network.port_range.set = 5000-5000
 network.port_random.set = no
 
 # "Public tracker"-related settings.
-# Set to disable, no, and no respectively for "private tracker" usage.
-dht.mode.set = on
+# Set to disable, no, and no respectively to completely disable. Ignore the port.
+dht.port.set = 6881
+dht.mode.set = auto
 protocol.pex.set = yes
 trackers.use_udp.set = yes
 
