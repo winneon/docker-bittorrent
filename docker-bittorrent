@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mkdir -p /data/rtorrent/{downloads,watch,log,.session,rutorrent/user-profiles,rutorrent/user-profiles/torrents}
+mkdir -p /data/rtorrent/{downloads,watch,watch/load,watch/start,log,.session,rutorrent/user-profiles,rutorrent/user-profiles/torrents}
 
 chown -R www-data:www-data /data/rutorrent
 chmod -R 0755 /data/rutorrent
