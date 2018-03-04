@@ -2,9 +2,13 @@
 
 Based on the original [docktorrent], this [Docker] container serves as a fully-featured BitTorrent client/server system, consisting of [rTorrent], [ruTorrent], and [flood]. It's incredibly easy to get started. Just pull the [Docker image] and start up a new container.
 
-<h5 align="center">
-	<a href="#features">FEATURES</a> &mdash; <a href="#installation">INSTALLATION</a> &mdash; <a href="#configuration">CONFIGURATION</a> &mdash; <a href="#usage">USAGE</a> &mdash; <a href="#building">BUILDING</a>
-</h5>
+# Table of Contents
+
+* [Features](#features)
+* [Installation](#installation)
+* [Configuration](#configuration)
+* [Usage](#usage)
+* [Building](#building)
 
 ## Features
 
